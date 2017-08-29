@@ -8,4 +8,6 @@ import hello.entities.User;
 public interface RegisterDAO {
 
 	boolean create(User user);
+
+	Iterable<User> getAllUsers();
 }

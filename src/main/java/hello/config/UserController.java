@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Created by andrzej on 28.08.17.
  */
@@ -38,6 +40,15 @@ public class UserController {
 		return "registerok";
 	}
 
+
+	@RequestMapping (value = "/adminmanager", method = RequestMethod.GET)
+	public String getAllUsers(Model model) {
+
+		List<User> allUsers = userService.getAllUsers();
+		model.addAttribute("users" , allUsers);
+
+		return "adminmanager";
+	}
 
 
 }

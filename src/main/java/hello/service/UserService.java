@@ -6,6 +6,7 @@ import hello.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -28,6 +29,14 @@ public class UserService {
 
 		boolean b = registerDAO.create(user);
 		return b ? new UserResponse() : new UserResponse(user.getUsername() + " already exist");
-
 	}
+
+	public List<User> getAllUsers() {
+
+		Iterable<User> allUsers = registerDAO.getAllUsers();
+
+		return (List<User>) allUsers;
+	}
+
+
 }
